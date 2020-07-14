@@ -4,12 +4,12 @@ const dropdownContent = document.querySelector('.dropdown-content')
 
 
 
-const attachModalListeners = (modalElm) => {
-    modalElm.querySelector('.overlay').addEventListener('click', toggleModal)
+const attachModalListeners = () => {
+    document.querySelector('.overlay').addEventListener('click', toggleModal)
 }
 
-const detachModalListeners = (modalElm) => {
-    modalElm.querySelector('.overlay').removeEventListener('click', toggleModal)
+const detachModalListeners = () => {
+    document.querySelector('.overlay').removeEventListener('click', toggleModal)
 }
 
 const toggleModal = () => {
@@ -18,11 +18,11 @@ const toggleModal = () => {
     if (currentState === 'none') {
         modal.style.display = 'block'
         dropdownContent.style.left = '0'
-        dropdownContent.style. = 'left 2s'
-        attachModalListeners(modal)
+        attachModalListeners()
     } else {
         modal.style.display = 'none'
-        detachModalListeners(modal)
+        dropdownContent.style.left = '-30rem'
+        detachModalListeners()
     }
 }
 
