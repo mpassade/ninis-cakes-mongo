@@ -13,9 +13,9 @@ const detachModalListeners = () => {
 }
 
 const toggleModal = () => {
-    const currentState = modal.style.display;
-
-    if (currentState === 'none') {
+    if (modal.style.display === 'none' ||
+        modal.style.display === '') {
+        console.log('modal should come up')
         modal.style.display = 'block'
         dropdownContent.style.left = '0'
         attachModalListeners()
