@@ -4,11 +4,11 @@ const dropdownContent = document.querySelector('.dropdown-content')
 
 
 
-const attachModalListeners = () => {
+const attachModalListener = () => {
     document.querySelector('.overlay').addEventListener('click', toggleModal)
 }
 
-const detachModalListeners = () => {
+const detachModalListener = () => {
     document.querySelector('.overlay').removeEventListener('click', toggleModal)
 }
 
@@ -16,11 +16,11 @@ const toggleModal = () => {
     if (overlay.style.display === 'none') {
         overlay.style.display = 'block'
         dropdownContent.classList.add('show')
-        attachModalListeners()
+        attachModalListener()
     } else {
         overlay.style.display = 'none'
         dropdownContent.classList.remove('show')
-        detachModalListeners()
+        detachModalListener()
     }
 }
 

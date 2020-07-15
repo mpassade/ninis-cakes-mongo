@@ -4,13 +4,13 @@
     <%- include('../partials/head') %>
 </head>
 <body>
-    <div class="overlay" style="display: none;"></div>
     <div class="navbar">
         <div class="dropdown-btn">
             <span></span>
             <span></span>
             <span></span>
         </div>
+        <div class="overlay" style="display: none;"></div>
         <div class="dropdown-content">
             <div>
                 <span><a href="#">Login</a> / <a href="#">Register</a></span>
@@ -31,16 +31,20 @@
     <div class="cakes">
         <% for( let i = 0; i < cakes.length; i++ ) { %>
             <div class="cake">
-                <header class="cake-name"><%=cakes[i].name%></header>
-                <img class="cake-img" src=<%=cakes[i].image%>>
-                <div class="cake-modal" style="display: none;">
-                    <div class="cake-overlay"></div>
+                <% let name = cakes[i].name.toLowerCase().split(" ").join("") %>
+                <header class="cake-name <%=name%>"><%=cakes[i].name%></header>
+                <img class="cake-img <%=name%>" src=<%=cakes[i].image%>>
+                <div class="cake-modal <%=name%>-modal" style="display: none;">
+                    <div class="cake-overlay <%=name%> <%=name%>-overlay"></div>
                     <div class="cake-modal-content">
                         <header><%=cakes[i].name%></header>
                         <div class="cake-info">
                             <img src=<%=cakes[i].image%>>
-                            <div>
-                                <p><span>Description:</span> <%=cakes[i].description%></p>
+                            <div class="cake-info-txt">
+                                <div>
+                                    <span class="bold-txt">Description:</span>
+                                    <span><%=cakes[i].description%></span>
+                                </div>
                             </div>
                         </div>
                     </div>
