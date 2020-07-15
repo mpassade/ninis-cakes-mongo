@@ -15,13 +15,12 @@ const detachModalListeners = () => {
 const toggleModal = () => {
     if (modal.style.display === 'none' ||
         modal.style.display === '') {
-        console.log('modal should come up')
         modal.style.display = 'block'
-        dropdownContent.style.left = '0'
+        dropdownContent.focus()
         attachModalListeners()
     } else {
         modal.style.display = 'none'
-        dropdownContent.style.left = '-30rem'
+        dropdownContent.focus()
         detachModalListeners()
     }
 }
