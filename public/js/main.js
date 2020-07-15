@@ -1,4 +1,4 @@
-const modal = document.querySelector('.dropdown')
+const overlay = document.querySelector('.overlay')
 const dropdownBtn = document.querySelector('.dropdown-btn')
 const dropdownContent = document.querySelector('.dropdown-content')
 
@@ -13,16 +13,18 @@ const detachModalListeners = () => {
 }
 
 const toggleModal = () => {
-    if (modal.style.display === 'none' ||
-        modal.style.display === '') {
-        modal.style.display = 'block'
-        dropdownContent.focus()
+    if (overlay.style.display === 'none') {
+        overlay.style.display = 'block'
+        dropdownContent.classList.add('show')
         attachModalListeners()
     } else {
-        modal.style.display = 'none'
-        dropdownContent.focus()
+        overlay.style.display = 'none'
+        dropdownContent.classList.remove('show')
         detachModalListeners()
     }
 }
 
 dropdownBtn.addEventListener('click', toggleModal)
+dropdownContent.addEventListener('transitionstart', () => {
+    console.log('Started transitioning');
+  });
