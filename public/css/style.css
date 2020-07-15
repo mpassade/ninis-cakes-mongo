@@ -111,8 +111,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 40rem;
-    width: 40rem;
+    height: 35rem;
+    width: 45rem;
     overflow: auto;
     background: #fff;
     box-sizing: border-box;
@@ -132,7 +132,7 @@
     justify-content: space-between;
 }
 .cake-info img {
-    height: 30rem;
+    height: 25rem;
     width: 20rem;
 }
 .cake-info-txt {
@@ -140,10 +140,13 @@
 }
 .cake-info-txt div {
     display: flex;
+    padding-top: 4rem;
+    padding-left: 2rem;
 }
 .cake-info-txt span {
     font-size: 1.5rem;
 }
 .bold-txt {
     font-weight: bold;
+    padding-right: 1rem;
 }
