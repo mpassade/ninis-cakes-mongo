@@ -11,8 +11,7 @@ const MongoStore = require('connect-mongo')(session)
 require('dotenv').config()
 require('./lib/passport.js')
 
-const userRouter = require('./routes/userRoutes.js')
-const indexRouter = require('./routes/index.js')
+const router = require('./routes/routes.js')
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -49,8 +48,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/', indexRouter)
-app.use('/v1', userRouter)
+app.use('/', router)
 
 const port = process.env.PORT || 8000
 

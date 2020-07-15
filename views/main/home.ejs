@@ -4,13 +4,13 @@
     <%- include('../partials/head') %>
 </head>
 <body>
+    <div class="overlay" style="display: none;"></div>
     <div class="navbar">
         <div class="dropdown-btn">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <div class="overlay" style="display: none;"></div>
         <div class="dropdown-content">
             <div>
                 <span><a href="#">Login</a> / <a href="#">Register</a></span>
@@ -26,6 +26,27 @@
     <div>
         <header class="ninis-header">Nini's Cakes</header>
         <p class="ninis-desc">Best Custom Cakes in NYC</p>
+    </div>
+
+    <div class="cakes">
+        <% for( let i = 0; i < cakes.length; i++ ) { %>
+            <div class="cake">
+                <header class="cake-name"><%=cakes[i].name%></header>
+                <img class="cake-img" src=<%=cakes[i].image%>>
+                <div class="cake-modal" style="display: none;">
+                    <div class="cake-overlay"></div>
+                    <div class="cake-modal-content">
+                        <header><%=cakes[i].name%></header>
+                        <div class="cake-info">
+                            <img src=<%=cakes[i].image%>>
+                            <div>
+                                <p><span>Description:</span> <%=cakes[i].description%></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
     </div>
     <%- include('../partials/scripts') %>
 </body>

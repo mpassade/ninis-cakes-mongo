@@ -25,6 +25,3 @@ const toggleModal = () => {
 }
 
 dropdownBtn.addEventListener('click', toggleModal)
-dropdownContent.addEventListener('transitionstart', () => {
-    console.log('Started transitioning');
-  });
