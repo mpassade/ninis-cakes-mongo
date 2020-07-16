@@ -14,5 +14,9 @@ module.exports = {
             return res.redirect('/')
         }
         return res.render('main/register')
+    },
+
+    register: (req, res) => {
+        
     }
 }

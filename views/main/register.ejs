@@ -6,19 +6,17 @@
 <body>
     <%- include('../partials/navbar') %>
     <div id="register-container">
+        <%- include('../partials/errors') %>
         <header id="register-header">Register</header>
-        <% if (errors.length) { %>
-            <p class="errors"><%=errors%></p>
-        <% } %>
         <form action="/register" method="POST">
             <div class="form-inputs">
                 <input type="text" class="inputs" name="firstName" placeholder="First Name">
                 <input type="text" class="inputs" name="lastName" placeholder="Last Name">
-                <input type="email" class="inputs" name="email" placeholder="Email">
+                <input type="email" class="inputs" name="email" placeholder="Email Address">
             </div>
             <div class="form-btns">
-                <button id="register-btn" type="submit">Register</button>
-                <span><a href="/login" id="login-link">Already have an account? Login here</a></span>
+                <button type="submit">Sign Up</button>
+                <span><a href="/login">Already have an account? Login here</a></span>
             </div>
         </form>
     </div>

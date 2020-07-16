@@ -22,7 +22,8 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        min: 3
+        min: 8,
+        max: 32
     },
     tempPassword: {
         type: Boolean,

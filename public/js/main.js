@@ -4,6 +4,7 @@ const dropdownContent = document.querySelector('.dropdown-content')
 const cakeNames = document.querySelectorAll('.cake-name')
 const cakeImgs = document.querySelectorAll('.cake-img')
 const allCakeContent = document.querySelectorAll('.cake-modal-content')
+const closeBtn = document.querySelector('.close')
 
 const toggleModal = (e) => {
     if (e.target!==overlay){
@@ -30,9 +31,15 @@ const toggleModal = (e) => {
     }
 }
 
+const closeMsg = () => {
+    closeBtn.parentElement.style.display = 'none'
+}
+
 for (let i=0; i<cakeNames.length; i++){
     cakeNames[i].addEventListener('click', toggleModal)
     cakeImgs[i].addEventListener('click', toggleModal)
 }
 
 dropdownBtn.addEventListener('click', toggleModal)
+
+closeBtn.addEventListener('click', closeMsg)
