@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const mongoose = require('mongoose')
-// const flash = require('connect-flash')
+const flash = require('connect-flash')
 const morgan = require('morgan')
 const session = require('express-session')
 const passport = require('passport')
@@ -39,12 +39,12 @@ app.use(
     })
 )
 
-// app.use(flash())
+app.use(flash())
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
     res.locals.user = req.user
-    // res.locals.errors = req.flash('errors')
+    res.locals.errors = req.flash('errors')
     next()
 })
 

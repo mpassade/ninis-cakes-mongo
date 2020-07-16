@@ -15,10 +15,12 @@
     background-color: black;
     margin-left: 0.1875rem;
 }
-.navbar span {
+.navbar span, .navbar a {
     font-weight: bold;
     font-size: 1.1rem;
     font-family: cursive;
+    text-decoration: none;
+    color: black;
 }
 .ninis-header {
     text-align: center;
@@ -62,10 +64,7 @@
     align-items: center;
 }
 .dropdown-content a, .dropdown-content span {
-    text-decoration: none;
     font-size: 2rem;
-    font-family: cursive;
-    color: black;
 }
 .cakes {
     display: flex;
@@ -132,4 +131,22 @@
 .bold-txt {
     font-weight: bold;
     padding-right: 1rem;
+}
+#register-container {
+    height: 27rem;
+    width: 36rem;
+    margin: auto;
+    margin-top: 7rem;
+}
+#register-header {
+    font-weight: bold;
+    font-size: 2.25rem;
+    font-family: cursive;
+}
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+}
+.inputs {
+    margin-top: 1rem;
 }

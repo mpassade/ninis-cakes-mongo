@@ -4,30 +4,7 @@
     <%- include('../partials/head') %>
 </head>
 <body>
-    <div class="navbar">
-        <div class="dropdown-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="overlay" style="display: none;"></div>
-        <div class="dropdown-content">
-            <div>
-                <span><a href="#">Login</a> / <a href="#">Register</a></span>
-            </div>
-            <div><a href="#">Home</a></div>
-            <div><a href="#">About</a></div>
-            <div><a href="#">Request a Quote</a></div>
-            <div><a href="#">Write a Review</a></div>
-            <div><a href="#">Contact Us</a></div>
-        </div>
-        <span>Register / Login</span>
-    </div>
-    <div>
-        <header class="ninis-header">Nini's Cakes</header>
-        <p class="ninis-desc">Best Custom Cakes in NYC</p>
-    </div>
-
+    <%- include('../partials/navbar') %>
     <div class="cakes">
         <% for( let i = 0; i < cakes.length; i++ ) { %>
             <div class="cake">
