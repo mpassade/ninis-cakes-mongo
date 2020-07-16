@@ -34,17 +34,14 @@
                 <% let name = cakes[i].name.toLowerCase().split(" ").join("") %>
                 <header class="cake-name <%=name%>"><%=cakes[i].name%></header>
                 <img class="cake-img <%=name%>" src=<%=cakes[i].image%>>
-                <div class="cake-modal <%=name%>-modal" style="display: none;">
-                    <div class="cake-overlay <%=name%> <%=name%>-overlay"></div>
-                    <div class="cake-modal-content">
-                        <header><%=cakes[i].name%></header>
-                        <div class="cake-info">
-                            <img src=<%=cakes[i].image%>>
-                            <div class="cake-info-txt">
-                                <div>
-                                    <span class="bold-txt">Description:</span>
-                                    <span><%=cakes[i].description%></span>
-                                </div>
+                <div class="cake-modal-content <%=name%>-content" style="display: none;">
+                    <header><%=cakes[i].name%></header>
+                    <div class="cake-info">
+                        <img src=<%=cakes[i].image%>>
+                        <div class="cake-info-txt">
+                            <div>
+                                <span class="bold-txt">Description:</span>
+                                <span><%=cakes[i].description%></span>
                             </div>
                         </div>
                     </div>
