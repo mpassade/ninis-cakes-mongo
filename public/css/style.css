@@ -186,3 +186,33 @@
 .close {
     cursor: pointer;
 }
+.confirmation {
+    text-align: center;
+    margin-top: 6rem;
+}
+.confirmation header {
+    font-weight: bold;
+    font-size: 3rem;
+}
+.confirmation p {
+    font-size: 1.5rem;
+}
+.confirmation a {
+    color: blue;
+}
+#password-container {
+    height: 27rem;
+    width: 30rem;
+    margin: auto;
+    margin-top: 5rem;
+}
+#pwd-btn {
+    height: 2.1rem;
+    width: 10rem;
+    background-color: black;
+    color: white;
+    font-size: 1.4rem;
+    border: 0.0625rem solid black;
+    margin-top: 1rem;
+}
+

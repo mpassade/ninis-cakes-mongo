@@ -57,5 +57,23 @@ module.exports = {
         }).catch(err => {
             return res.send(`Server Error: ${err}`)
         })
+    },
+
+    getSetPwd: (req, res) => {
+        User.findOne({_id: req.params.id})
+        .then(user => {
+            if (user){
+                if(user.tempPassword){
+                    return res.render('main/set-password', {user})
+                }
+            }
+            return res.redirect('/')
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
+    },
+
+    setPwd: (req, res) => {
+        
     }
 }
