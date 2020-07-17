@@ -15,6 +15,7 @@ router.post(
     '/register',
     checkRegister,
     duplicateAccount,
-    register)
+    register
+)
 
 module.exports = router
