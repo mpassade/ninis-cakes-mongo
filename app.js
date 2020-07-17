@@ -4,6 +4,7 @@ const path = require('path')
 const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const morgan = require('morgan')
+const methodOverride = require('method-override')
 const session = require('express-session')
 const passport = require('passport')
 const MongoStore = require('connect-mongo')(session)
@@ -20,7 +21,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
-
+app.use(methodOverride('_method'))
 
 app.use(
     session({

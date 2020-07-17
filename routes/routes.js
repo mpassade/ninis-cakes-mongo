@@ -6,7 +6,7 @@ const {
 } = require('./controllers/controller')
 
 const {
-    checkRegister, duplicateAccount
+    checkRegister, duplicateAccount, checkPwds, checkTemp
 } = require('./middleware/middleware')
 
 router.get('/', home)
@@ -20,6 +20,8 @@ router.post(
 )
 router.put(
     '/set-password/:id',
+    checkPwds,
+    checkTemp,
     setPwd
 )
 
