@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <div class="account-info">
+        <%- include('../partials/errors') %>
+        <header>Profile</header>
+        <div class="profile-inputs">
+            <input type="text" class="inputs" name="firstName" value="<%=user.firstName%>">
+            <input type="text" class="inputs" name="lastName" value="<%=user.lastName%>">
+            <input type="email" class="inputs" name="email" value="<%=user.email%>">
+        </div>
+        <div class="profile-btns">
+            <a href="/edit-profile"><button class="edit-btn">Edit</button></a>
+            <a href="/change-password"><button class="change-pwd-btn">Change Password</button></a>
+            <button class="delete-btn">Delete Account</button>
+        </div>
+    </div>
+    <%- include('../partials/scripts') %>
+</body>
+</html>

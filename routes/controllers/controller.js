@@ -60,6 +60,9 @@ module.exports = {
     },
 
     getSetPwd: (req, res) => {
+        if (req.isAuthenticated()){
+            return res.redirect('/')
+        }
         User.findOne({_id: req.params.id})
         .then(user => {
             if (user){
@@ -101,5 +104,12 @@ module.exports = {
         req.logout()
         req.session.destroy()
         return res.redirect('/login')
+    },
+
+    getProfile: (req, res) => {
+        if (req.isAuthenticated()){
+            return res.render('main/profile')
+        }
+        return res.redirect('/')
     }
 }

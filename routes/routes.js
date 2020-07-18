@@ -3,8 +3,8 @@ const router = express.Router()
 const passport = require('passport')
 
 const {
-    home, getRegister, getLogin, getSetPwd, register,
-    setPwd, logout
+    home, getRegister, getLogin, getSetPwd, logout,
+    getProfile, register, setPwd
 } = require('./controllers/controller')
 
 const {
@@ -17,6 +17,7 @@ router.get('/register', getRegister)
 router.get('/login', getLogin)
 router.get('/set-password/:id', getSetPwd)
 router.get('/logout', logout)
+router.get('/profile', getProfile)
 router.post(
     '/register',
     checkRegister,

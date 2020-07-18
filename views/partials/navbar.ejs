@@ -7,7 +7,7 @@
     <div class="overlay" style="display: none;"></div>
     <div class="dropdown-content">
         <div>
-            <% if (user) { %>
+            <% if (authenticated) { %>
                 <span><a href="/profile">Profile</a></span>
             <% } else { %>
                 <span><a href="/login">Login</a> / <a href="/register">Register</a></span>
@@ -18,11 +18,11 @@
         <div><a href="/quote">Request a Quote</a></div>
         <div><a href="/review">Write a Review</a></div>
         <div><a href="/contact">Contact Us</a></div>
-        <% if (user) { %>
+        <% if (authenticated) { %>
             <div><span><a href="/logout">Logout</a></span></div>
         <% } %>
     </div>
-    <% if (user) { %>
+    <% if (authenticated) { %>
         <span>Hi <a href="/profile"><%=user.firstName%></a> | <a href="/logout">Logout</a></span>
     <% } else { %>
         <span><a href="/login">Login</a> / <a href="/register">Register</a></span>

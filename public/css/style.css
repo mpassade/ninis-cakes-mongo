@@ -134,18 +134,18 @@
     font-weight: bold;
     padding-right: 1rem;
 }
-#register-container, #login-container {
+.account-info {
     height: 27rem;
     width: 30rem;
     margin: auto;
     margin-top: 6rem;
 }
-#register-header, #login-header {
+.account-info header {
     font-weight: bold;
     font-size: 2.25rem;
     font-family: cursive;
 }
-.form-inputs {
+.form-inputs, .profile-inputs {
     display: flex;
     flex-direction: column;
 }
@@ -160,6 +160,11 @@
     justify-content: space-between;
     margin-top: 1rem;
 }
+.profile-btns {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
 .form-btns button {
     height: 2.1rem;
     width: 7rem;
@@ -167,6 +172,18 @@
     color: white;
     font-size: 1.4rem;
     border: 0.0625rem solid black;
+}
+.edit-btn, .change-pwd-btn, .delete-btn {
+    height: 2.1rem;
+    width: 7rem;
+    background-color: black;
+    color: white;
+    font-size: 1.4rem;
+    border: 0.0625rem solid black;
+    margin-bottom: 1rem;
+}
+.change-pwd-btn, .delete-btn {
+    width: 14rem;
 }
 .form-btns a {
     text-decoration: none;
