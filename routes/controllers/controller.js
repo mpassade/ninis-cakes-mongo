@@ -74,6 +74,19 @@ module.exports = {
     },
 
     setPwd: (req, res) => {
-        
+        User.findOne({_id: req.params.id})
+        .then(user => {
+            const salt = bcrypt.genSaltSync(10)
+            const hash = bcrypt.hashSync(req.body.newPass, salt)
+            user.password = hash
+            user.tempPassword = false
+            user.save().then(() => {
+                return res.render('main/pwd-set')
+            }).catch(err => {
+                return res.send(`Server Error: ${err}`)
+            })
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
     }
 }

@@ -51,15 +51,16 @@ module.exports = {
     },
 
     checkNewPwd: (req, res, next) => {
+        const regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/
         if (req.body.newPass !== req.body.confirmNew){
             req.flash('errors', "New passwords don't match")
             return res.redirect(`/set-password/${req.params.id}`)
         }
-        if (req.body.newPass.length<8 ||
-            req.body.newPass.length>32 ||
-            req.body.newPass.length){
-            req.flash('errors', 'Password must be between 8 and 32 characters long. It must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 special character.')
-            return res.redirect(`/set-password/${req.params.id}`)
+        if (!regex.test(req.body.newPass) ||
+            req.body.newPass.length<8 ||
+            req.body.newPass.length>32){
+                req.flash('errors', 'Password must be between 8 and 32 characters long. It must contain at least 1 lowercase letter, 1 uppercase letter, and 1 number.')
+                return res.redirect(`/set-password/${req.params.id}`)
         }
         next()
     }

@@ -183,6 +183,9 @@
     display: flex;
     justify-content: space-between;
 }
+.err-msg {
+    width: 90%;
+}
 .close {
     cursor: pointer;
 }
