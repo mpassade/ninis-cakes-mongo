@@ -145,7 +145,7 @@
     font-size: 2.25rem;
     font-family: cursive;
 }
-.form-inputs, .profile-inputs {
+.form-inputs, .profile {
     display: flex;
     flex-direction: column;
 }
@@ -155,14 +155,9 @@
     font-size: 1rem;
     border: 0.125rem solid rgb(70, 70, 70);
 }
-.form-btns {
+.form-btns, .profile-btns {
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
-}
-.profile-btns {
-    display: flex;
-    flex-direction: column;
     margin-top: 1rem;
 }
 .form-btns button {
@@ -173,24 +168,32 @@
     font-size: 1.4rem;
     border: 0.0625rem solid black;
 }
-.edit-btn, .change-pwd-btn, .delete-btn {
+.edit-btn, .change-pwd-btn, .save-btn {
     height: 2.1rem;
-    width: 7rem;
+    width: 5rem;
     background-color: black;
     color: white;
     font-size: 1.4rem;
     border: 0.0625rem solid black;
-    margin-bottom: 1rem;
 }
-.change-pwd-btn, .delete-btn {
-    width: 14rem;
+.change-pwd-btn {
+    width: 13rem;
+}
+.delete-btn {
+    height: 2.1rem;
+    width: 6rem;
+    margin-top: 2rem;
+    background-color: rgb(201, 201, 201);
+    color: rgb(255, 52, 52);
+    font-size: 1.4rem;
+    border: 0.0625rem solid black;
 }
 .form-btns a {
     text-decoration: none;
     color: blue;
     font-size: 1rem;
 }
-.errors {
+.errors, .success {
     padding: 0.75rem 1.25rem;
     margin-bottom: 1rem;
     border-radius: 0.25rem;
@@ -200,7 +203,11 @@
     display: flex;
     justify-content: space-between;
 }
-.err-msg {
+.success {
+    color: #155724;
+    background-color: #d4edda;
+}
+.err-msg, .success-msg {
     width: 90%;
 }
 .close {

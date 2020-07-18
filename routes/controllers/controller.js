@@ -111,5 +111,17 @@ module.exports = {
             return res.render('main/profile')
         }
         return res.redirect('/')
+    },
+
+    getEdit: (req, res) => {
+        User.findOne({_id: req.params.id})
+        .then(user => {
+            if (!user || !req.isAuthenticated() || JSON.stringify(user)!==JSON.stringify(req.user)){
+                return res.redirect('/')
+            }
+            return res.render('main/edit-profile')
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
     }
 }

@@ -47,6 +47,7 @@ app.use((req, res, next) => {
     res.locals.user = req.user
     res.locals.authenticated = req.isAuthenticated()
     res.locals.errors = req.flash('errors')
+    res.locals.success = req.flash('success')
     next()
 })
 
