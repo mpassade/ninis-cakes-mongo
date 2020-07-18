@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <div id="login-container">
+        <%- include('../partials/errors') %>
+        <header id="login-header">Login</header>
+        <form action="/login" method="POST">
+            <div class="form-inputs">
+                <input type="email" class="inputs" name="email" placeholder="Email Address">
+                <input type="password" class="inputs" name="password" placeholder="Password">
+            </div>
+            <div class="form-btns">
+                <button type="submit">Login</button>
+                <span><a href="/register">Don't have an account? Register here</a></span>
+            </div>
+        </form>
+    </div>
+    <%- include('../partials/scripts') %>
+</body>
+</html>

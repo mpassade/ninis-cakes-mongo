@@ -134,13 +134,13 @@
     font-weight: bold;
     padding-right: 1rem;
 }
-#register-container {
+#register-container, #login-container {
     height: 27rem;
     width: 30rem;
     margin: auto;
     margin-top: 6rem;
 }
-#register-header {
+#register-header, #login-header {
     font-weight: bold;
     font-size: 2.25rem;
     font-family: cursive;

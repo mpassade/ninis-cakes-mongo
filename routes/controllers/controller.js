@@ -88,5 +88,12 @@ module.exports = {
         }).catch(err => {
             return res.send(`Server Error: ${err}`)
         })
+    },
+
+    getLogin: (req, res) => {
+        if (req.isAuthenticated()){
+            return res.redirect('/')
+        }
+        return res.render('main/login')
     }
 }

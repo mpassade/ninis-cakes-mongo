@@ -63,17 +63,16 @@ module.exports = {
                 return res.redirect(`/set-password/${req.params.id}`)
         }
         next()
-    }
+    },
 
-    // validateLoginInput: (req, res, next) => {
-    //     const {username, password} = req.body
-    //     if (!username || !password){
-    //         req.flash('errors', 'All fields are required')
-    //         return res.redirect('/api/v1/email-signup/login')
-    //     }
-        
-    //     next()
-    // },
+    checkLogin: (req, res, next) => {
+        const {email, password} = req.body
+        if (!email || !password){
+            req.flash('errors', 'All fields are required')
+            return res.redirect('/login')
+        }
+        next()
+    },
 
 
 
