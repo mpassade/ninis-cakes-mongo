@@ -4,7 +4,7 @@ const passport = require('passport')
 
 const {
     home, getRegister, getLogin, getSetPwd, register,
-    setPwd
+    setPwd, logout
 } = require('./controllers/controller')
 
 const {
@@ -16,6 +16,7 @@ router.get('/', home)
 router.get('/register', getRegister)
 router.get('/login', getLogin)
 router.get('/set-password/:id', getSetPwd)
+router.get('/logout', logout)
 router.post(
     '/register',
     checkRegister,

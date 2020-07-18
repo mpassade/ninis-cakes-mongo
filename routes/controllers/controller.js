@@ -95,5 +95,11 @@ module.exports = {
             return res.redirect('/')
         }
         return res.render('main/login')
+    },
+
+    logout: (req, res) => {
+        req.logout()
+        req.session.destroy()
+        return res.redirect('/login')
     }
 }
