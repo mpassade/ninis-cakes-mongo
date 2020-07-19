@@ -123,5 +123,66 @@ module.exports = {
         }).catch(err => {
             return res.send(`Server Error: ${err}`)
         })
+    },
+
+    editProfile: (req, res) => {
+        const { firstName, lastName, email } = req.body
+        User.findOne({_id: req.params.id})
+        .then(user => {
+            const first = user.firstName
+            const last = user.lastName
+            user.firstName = firstName
+            user.lastName = lastName
+            if (user.email!==email){
+                const temp = nanoid()
+                mailjet.post("send", {'version': 'v3.1'}).request({
+                    "Messages":[
+                        {
+                            "From": {
+                                "Email": "michael.passade@codeimmersives.com",
+                                "Name": "Nini"
+                            },
+                            "To": [
+                                {
+                                    "Email": email,
+                                    "Name": `${user.firstName} ${user.lastName}`
+                                }
+                            ],
+                            "Subject": "Profile Updated!",
+                            "TextPart": "Profile Update",
+                            "HTMLPart": `<form action="http://localhost:3000/verify-email/${user._id}/${email}/${temp}?_method=PUT" method="POST"><p>Hi ${user.firstName},</p><p>Please click the below link to verify your new email address.</p><button type="submit">Verify Email</button></form>`,
+                            "CustomID": "AppGettingStartedTest"
+                        }
+                    ]
+                })
+            }
+            user.save().then(savedUser => {
+                if (savedUser.email!==email &&
+                    (savedUser.firstName!==first ||
+                    savedUser.lastName!==last)){
+                        req.flash('success', 'Name updated. An email was just sent to you. Please follow its directions to verify your new email address.')
+                        return res.redirect('/profile')
+                }
+                if (savedUser.email===email){
+                        req.flash('success', 'Name updated')
+                        return res.redirect('/profile')
+                }
+                if (savedUser.email!==email){
+                        req.flash('success', 'An email was just sent to you. Please follow its directions to verify your new email address.')
+                        return res.redirect('/profile')
+                }
+            }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
+    },
+
+    verifyEmail: (req, res) => {
+        if (!req.isAuthenticated()){
+            return res.redirect('/')
+        }
+        
     }
 }

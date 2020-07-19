@@ -4,12 +4,13 @@ const passport = require('passport')
 
 const {
     home, getRegister, getLogin, getSetPwd, logout,
-    getProfile, getEdit, register, setPwd
+    getProfile, getEdit, register, setPwd, editProfile,
+    verifyEmail
 } = require('./controllers/controller')
 
 const {
     checkRegister, duplicateAccount, checkPwds, checkTemp,
-    checkNewPwd, checkLogin
+    checkNewPwd, checkLogin, checkEdit
 } = require('./middleware/middleware')
 
 router.get('/', home)
@@ -40,5 +41,11 @@ router.put(
     checkNewPwd,
     setPwd
 )
+router.put(
+    '/edit-profile/:id',
+    checkEdit,
+    editProfile
+)
+router.put('/verify-email/:id/:email/:key', verifyEmail)
 
 module.exports = router

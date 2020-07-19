@@ -74,13 +74,28 @@ module.exports = {
         next()
     },
 
-
-
-
-
-
-
-
+    checkEdit: (req, res, next) => {
+        const { firstName, lastName, email } = req.body
+        if (!firstName || !lastName || !email){
+            req.flash('errors', 'All fields are required')
+            return res.redirect(`/edit-profile/${req.user._id}`)
+        }
+        User.findOne({email})
+        .then(user => {
+            if (user && JSON.stringify(user)!==JSON.stringify(req.user)){
+                req.flash('errors', 'An account with that email address already exists')
+                return res.redirect(`/edit-profile/${req.user._id}`)
+            }
+            if (user){
+                if (firstName===user.firstName && lastName===user.lastName){
+                    return res.redirect('/profile')
+                }
+            }
+            next()
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
+    },
 
 
 }

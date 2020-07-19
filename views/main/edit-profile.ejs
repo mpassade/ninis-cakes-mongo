@@ -10,9 +10,9 @@
         <header>Edit Profile</header>
         <form action="/edit-profile/<%=user._id%>?_method=PUT" method="POST">
             <div class="profile">
-                <input type="text" class="inputs" name="firstName" value="<%=user.firstName%>">
-                <input type="text" class="inputs" name="lastName" value="<%=user.lastName%>">
-                <input type="email" class="inputs" name="email" value="<%=user.email%>">
+                <input type="text" class="inputs" name="firstName" value="<%=user.firstName%>" placeholder="First Name">
+                <input type="text" class="inputs" name="lastName" value="<%=user.lastName%>" placeholder="Last Name">
+                <input type="email" class="inputs" name="email" value="<%=user.email%>" placeholder="Email">
             </div>
             <div class="profile-btns">
                 <button class="save-btn" type="submit">Save</button>
