@@ -6,6 +6,7 @@
 <body>
     <%- include('../partials/navbar') %>
     <div class="cakes">
+        <% cakes.sort((a,b) => a.order - b.order) %>
         <% for( let i = 0; i < cakes.length; i++ ) { %>
             <div class="cake">
                 <% let name = cakes[i].name.toLowerCase().split(" ").join("") %>
@@ -15,12 +16,7 @@
                     <header><%=cakes[i].name%></header>
                     <div class="cake-info">
                         <img src=<%=cakes[i].image%>>
-                        <div class="cake-info-txt">
-                            <div>
-                                <span class="bold-txt">Description:</span>
-                                <span><%=cakes[i].description%></span>
-                            </div>
-                        </div>
+                        <span><%=cakes[i].description%></span>
                     </div>
                 </div>
             </div>

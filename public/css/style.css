@@ -117,22 +117,12 @@
 }
 .cake-info img {
     height: 25rem;
-    width: 20rem;
+    width: 22.5rem;
 }
-.cake-info-txt {
-    overflow: scroll;
-}
-.cake-info-txt div {
-    display: flex;
+.cake-info span {
+    font-size: 1.5rem;
     padding-top: 4rem;
     padding-left: 2rem;
-}
-.cake-info-txt span {
-    font-size: 1.5rem;
-}
-.bold-txt {
-    font-weight: bold;
-    padding-right: 1rem;
 }
 .account-info {
     height: 27rem;

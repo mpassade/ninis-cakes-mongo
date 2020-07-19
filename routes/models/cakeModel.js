@@ -6,6 +6,10 @@ const CakeSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    order: {
+        type: Number,
+        required: true
+    },
     description: {
         type: String,
         required: true

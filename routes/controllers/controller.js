@@ -154,7 +154,7 @@ module.exports = {
                                     "Name": `${user.firstName} ${user.lastName}`
                                 }
                             ],
-                            "Subject": "Profile Updated!",
+                            "Subject": "Email Verification",
                             "TextPart": "Profile Update",
                             "HTMLPart": `<form action="http://localhost:3000/verify-email/${user._id}/${email}/${temp}?_method=PUT" method="POST"><p>Hi ${user.firstName},</p><p>Please click the below link to verify your new email address.</p><button type="submit">Verify Email</button></form>`,
                             "CustomID": "AppGettingStartedTest"
