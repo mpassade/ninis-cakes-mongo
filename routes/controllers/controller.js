@@ -173,7 +173,7 @@ module.exports = {
                 }
             }).catch(err => {
             return res.send(`Server Error: ${err}`)
-        })
+            })
         }).catch(err => {
             return res.send(`Server Error: ${err}`)
         })
@@ -183,6 +183,20 @@ module.exports = {
         if (!req.isAuthenticated()){
             return res.redirect('/')
         }
-        
+        User.findOne({_id: req.params.id})
+        .then(user => {
+            if (JSON.stringify(user)!==JSON.stringify(req.user)){
+                return res.redirect('/')
+            }
+            user.email = req.params.email
+            user.save().then(() => {
+                req.flash('success', 'Email updated')
+                return res.redirect('/profile')
+            }).catch(err => {
+                return res.send(`Server Error: ${err}`)
+            })
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
     }
 }
