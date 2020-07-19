@@ -126,9 +126,15 @@ module.exports = {
     },
 
     editProfile: (req, res) => {
+        if (!req.isAuthenticated()){
+            return res.redirect('/')
+        }
         const { firstName, lastName, email } = req.body
         User.findOne({_id: req.params.id})
         .then(user => {
+            if (JSON.stringify(user)!==JSON.stringify(req.user)){
+                return res.redirect('/')
+            }
             const first = user.firstName
             const last = user.lastName
             user.firstName = firstName
