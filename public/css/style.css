@@ -184,7 +184,7 @@
     color: blue;
     font-size: 1rem;
 }
-.errors, .success {
+.errors, .success, .message {
     padding: 0.75rem 1.25rem;
     margin-bottom: 1rem;
     border-radius: 0.25rem;
@@ -198,7 +198,11 @@
     color: #155724;
     background-color: #d4edda;
 }
-.err-msg, .success-msg {
+.message {
+    color: #004084;
+    background-color: #CCE5FE;
+}
+.err-msg, .success-msg, .msg {
     width: 90%;
 }
 .close {
@@ -233,4 +237,35 @@
     border: 0.0625rem solid black;
     margin-top: 1rem;
 }
-
+.delete-modal-content {
+    z-index: 999;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    height: 8rem;
+    width: 30rem;
+    overflow: auto;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 0.625rem 1.875rem;
+    box-shadow: 0 0.0625rem 0.3125rem rgba(0,0,0,0.7);
+    border-radius: 0.25rem;
+    font-size: 1.4rem;
+}
+.delete-modal-content div {
+    display: flex;
+}
+.delete-modal-content button {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+#delete {
+    background-color: rgb(219, 0, 0);
+    color: white;
+    border: 0.0625rem solid rgb(219, 0, 0);
+}
+#cancel {
+    color: #1355CC;
+}

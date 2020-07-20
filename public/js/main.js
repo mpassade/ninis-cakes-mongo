@@ -5,6 +5,9 @@ const cakeNames = document.querySelectorAll('.cake-name')
 const cakeImgs = document.querySelectorAll('.cake-img')
 const allCakeContent = document.querySelectorAll('.cake-modal-content')
 const closeBtn = document.querySelector('.close')
+const dltBtn = document.querySelector('.delete-btn')
+const dltContent = document.querySelector('.delete-modal-content')
+const cancel = document.getElementById('cancel')
 
 const toggleModal = (e) => {
     if (e.target!==overlay){
@@ -31,6 +34,18 @@ const toggleModal = (e) => {
     }
 }
 
+const toggleModalDlt = () => {
+    if (overlay.style.display==='none'){
+        overlay.style.display = 'block'
+        dltContent.style.display = 'block'
+        cancel.addEventListener('click', toggleModalDlt)
+    } else {
+        overlay.style.display = 'none'
+        dltContent.style.display = 'none'
+        cancel.removeEventListener('click', toggleModalDlt)
+    }
+}
+
 const closeMsg = () => {
     closeBtn.parentElement.style.display = 'none'
 }
@@ -40,6 +55,12 @@ for (let i=0; i<cakeNames.length; i++){
     cakeImgs[i].addEventListener('click', toggleModal)
 }
 
+
 dropdownBtn.addEventListener('click', toggleModal)
 
-closeBtn.addEventListener('click', closeMsg)
+if (closeBtn!==null){
+    closeBtn.addEventListener('click', closeMsg)
+}
+if (dltBtn!==null){
+    dltBtn.addEventListener('click', toggleModalDlt)
+}

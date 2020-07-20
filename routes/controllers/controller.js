@@ -156,7 +156,7 @@ module.exports = {
                             ],
                             "Subject": "Email Verification",
                             "TextPart": "Profile Update",
-                            "HTMLPart": `<form action="http://localhost:3000/verify-email/${user._id}/${email}/${temp}?_method=PUT" method="POST"><p>Hi ${user.firstName},</p><p>Please click the below link to verify your new email address.</p><button type="submit">Verify Email</button></form>`,
+                            "HTMLPart": `<form action="http://localhost:3000/verify-email/${user._id}/${email}/${temp}?_method=PUT" method="POST"><p>Hi ${user.firstName},</p><p>Please click the below link to verify your new email address.</p><button style="background: none; border: none; padding: 0; color: #1355CC; text-decoration: underline; cursor: pointer;"type="submit">Verify Email</button></form>`,
                             "CustomID": "AppGettingStartedTest"
                         }
                     ]
@@ -234,6 +234,28 @@ module.exports = {
                 req.flash('success', 'Password changed')
                 return res.redirect('/profile')
             }).catch(err => {
+                return res.send(`Server Error: ${err}`)
+            })
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
+    },
+
+    deleteUser: (req, res) => {
+        if (!req.isAuthenticated()){
+            return res.redirect('/')
+        }
+        User.findOne({_id: req.params.id})
+        .then(user => {
+            if (JSON.stringify(user)!==JSON.stringify(req.user)){
+                return res.redirect('/')
+            }
+            User.deleteOne(user)
+            .then(() => {
+                req.flash('message', 'Account deleted')
+                return res.redirect('/login')
+            })
+            .catch(err => {
                 return res.send(`Server Error: ${err}`)
             })
         }).catch(err => {

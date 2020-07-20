@@ -5,7 +5,7 @@ const passport = require('passport')
 const {
     home, getRegister, getLogin, getSetPwd, logout,
     getProfile, getEdit, register, setPwd, editProfile,
-    verifyEmail, getChangePwd, changePwd
+    verifyEmail, getChangePwd, changePwd, deleteUser
 } = require('./controllers/controller')
 
 const {
@@ -56,5 +56,6 @@ router.put(
     editProfile
 )
 router.put('/verify-email/:id/:email/:key', verifyEmail)
+router.delete('/delete-user/:id', deleteUser)
 
 module.exports = router
