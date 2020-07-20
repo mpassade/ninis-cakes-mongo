@@ -38,7 +38,7 @@ module.exports = {
                     {
                         "From": {
                             "Email": "michael.passade@codeimmersives.com",
-                            "Name": "Nini"
+                            "Name": "Nini's Cakes"
                         },
                         "To": [
                             {
@@ -261,5 +261,9 @@ module.exports = {
         }).catch(err => {
             return res.send(`Server Error: ${err}`)
         })
+    },
+
+    contact: (req, res) => {
+        return res.render('main/contact')
     }
 }

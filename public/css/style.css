@@ -125,13 +125,13 @@
     padding-top: 4rem;
     padding-left: 2rem;
 }
-.account-info {
+.account-info, .contact {
     height: 27rem;
     width: 30rem;
     margin: auto;
     margin-top: 6rem;
 }
-.account-info header {
+.account-info header, .contact header {
     font-weight: bold;
     font-size: 2.25rem;
     font-family: cursive;
@@ -268,4 +268,23 @@
 }
 #cancel {
     color: #1355CC;
+}
+.contact-info div {
+    margin-top:  2rem;
+    display: grid;
+    grid-template-columns: 4rem 26rem;
+}
+.mail, .ig {
+    height: 2rem;
+    width: 2.6rem;
+    grid-column: 1 / span 1;
+    margin: auto;
+}
+.ig {
+    width: 2.2rem;
+}
+.contact-info a {
+    font-size: 2rem;
+    grid-column: 2 / span 1;
+    text-decoration: none;
 }
