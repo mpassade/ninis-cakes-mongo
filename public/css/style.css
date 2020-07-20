@@ -87,6 +87,7 @@
 .cake-img {
     height: 20rem;
     width: 18rem;
+    margin-bottom: 2rem;
     cursor: pointer;
 }
 .cake-modal-content {

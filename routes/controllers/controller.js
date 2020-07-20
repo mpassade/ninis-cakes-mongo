@@ -204,5 +204,40 @@ module.exports = {
         }).catch(err => {
             return res.send(`Server Error: ${err}`)
         })
+    },
+
+    getChangePwd: (req, res) => {
+        User.findOne({_id: req.params.id})
+        .then(user => {
+            if (!user || !req.isAuthenticated() || JSON.stringify(user)!==JSON.stringify(req.user)){
+                return res.redirect('/')
+            }
+            return res.render('main/change-password')
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
+    },
+
+    changePwd: (req, res) => {
+        if (!req.isAuthenticated()){
+            return res.redirect('/')
+        }
+        User.findOne({_id: req.params.id})
+        .then(user => {
+            if (JSON.stringify(user)!==JSON.stringify(req.user)){
+                return res.redirect('/')
+            }
+            const salt = bcrypt.genSaltSync(10)
+            const hash = bcrypt.hashSync(req.body.newPass, salt)
+            user.password = hash
+            user.save().then(() => {
+                req.flash('success', 'Password changed')
+                return res.redirect('/profile')
+            }).catch(err => {
+                return res.send(`Server Error: ${err}`)
+            })
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
     }
 }
