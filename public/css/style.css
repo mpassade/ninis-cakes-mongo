@@ -27,12 +27,14 @@
     font-size: 5rem;
     font-weight: bold;
     font-family: 'Parisienne';
+    white-space: nowrap;
 }
 .ninis-desc {
     text-align: center;
     margin: auto;
     font-size: 1.6rem;
     font-family: 'Parisienne';
+    white-space: nowrap;
 }
 .overlay {
     position: fixed;
@@ -48,7 +50,7 @@
     position: fixed;
     left: -30rem;
     top: 0;
-    width: 22rem;
+    width: 25vw;
     -webkit-transition: transform 1s;
     transition: transform 1s;
 }
@@ -127,7 +129,7 @@
 }
 .account-info, .contact {
     height: 27rem;
-    width: 30rem;
+    width: 40vw;
     margin: auto;
     margin-top: 6rem;
 }
@@ -224,7 +226,7 @@
 }
 #password-container, .quote {
     height: 27rem;
-    width: 30rem;
+    width: 40vw;
     margin: auto;
     margin-top: 5rem;
 }
@@ -244,7 +246,7 @@
     left: 50%;
     transform: translate(-50%, -40%);
     height: 8rem;
-    width: 30rem;
+    width: 40vw;
     overflow: auto;
     background: #fff;
     box-sizing: border-box;
@@ -290,12 +292,16 @@
 }
 .quote-info-container {
     display: grid;
-    grid-template-columns: 9rem 21rem;
+    grid-template-columns: 12vw 28vw;
     margin-top: 1rem;
 }
-.quote-info-container div {
+.checkbox-container {
     display: flex;
     justify-content: space-between;
+}
+.checkbox-container div {
+    display: flex;
+    align-items: center;
 }
 .quote-label {
     grid-column: 1 / span 1;
@@ -303,12 +309,13 @@
 }
 .quote-input, .dropdown {
     height: 1.5rem;
-    border: 0.125rem solid rgb(70, 70, 70);
+    border: 0.125em solid rgb(70, 70, 70);
     font-size: 1rem;
 }
 .checkbox {
     font-size: 1.2rem;
-    height: 1.2rem;
+    height: 1.5rem;
+    vertical-align: middle;
 }
 .dropdown{
     width: 8.5rem;
@@ -332,11 +339,91 @@
 }
 .txtarea-container textarea {
     margin-top: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     height: 10rem;
 }
 .quote-btn {
     margin-top: 1rem;
     width: 11rem;
     margin-bottom: 1rem;
+}
+@media (max-width: 300px){
+    .checkbox {
+        font-size: 0.8rem;
+        height: 0.8rem;
+    }
+    .ninis-header {
+        font-size: 3rem;
+    }
+    .ninis-desc {
+        font-size: 0.96rem;
+    }
+}
+@media (max-width: 500px){
+    #password-container, .quote, .account-info, .contact, .delete-modal-content {
+        width: 95vw;
+    }
+    .quote-info-container {
+        grid-template-columns: 23.75vw 71.25vw;
+    }
+    .txtarea-container label, .quote-label {
+        font-size: 1.25rem;
+    }
+    .navbar span {
+        font-size: 0.88rem;
+    }
+    .dropdown-btn span {
+        width: 1.2rem;
+    }
+    .dropdown-content {
+        width: 50vw;
+    }
+    .dropdown-content div {
+        height: 5rem;
+    }
+    .navbar a {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .form-btns button {
+        width: 4.5rem;
+        font-size: 1rem;
+    }
+    .form-btns a {
+        font-size: 0.8rem;
+    }
+}
+@media (min-width:301px) and (max-width: 500px){
+    .checkbox {
+        font-size: 1rem;
+        height: 1rem;
+    }
+    .ninis-header {
+        font-size: 4rem;
+    }
+    .ninis-desc {
+        font-size: 1.28rem;
+    }
+}
+@media (min-width:501px) and (max-width:700px){
+    #password-container, .quote, .account-info, .contact, .delete-modal-content {
+        width: 77.5vw;
+    }
+    .quote-info-container {
+        grid-template-columns: 23.25vw 54.25vw;
+    }
+    .dropdown-content {
+        width: 45vw;
+    }
+}
+@media (min-width:701px) and (max-width:1000px){
+    #password-container, .quote, .account-info, .contact, .delete-modal-content {
+        width: 60vw;
+    }
+    .quote-info-container {
+        grid-template-columns: 18vw 42vw;
+    }
+    .dropdown-content {
+        width: 35vw;
+    }
 }
