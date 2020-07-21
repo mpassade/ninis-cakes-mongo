@@ -6,7 +6,7 @@ const {
     home, getRegister, getLogin, getSetPwd, logout,
     getProfile, getEdit, register, setPwd, editProfile,
     verifyEmail, getChangePwd, changePwd, deleteUser,
-    contact
+    contact, getQuote
 } = require('./controllers/controller')
 
 const {
@@ -24,6 +24,7 @@ router.get('/profile', getProfile)
 router.get('/edit-profile/:id', getEdit)
 router.get('/change-password/:id', getChangePwd)
 router.get('/contact', contact)
+router.get('/quote', getQuote)
 router.post(
     '/register',
     checkRegister,

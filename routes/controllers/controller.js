@@ -265,5 +265,13 @@ module.exports = {
 
     contact: (req, res) => {
         return res.render('main/contact')
+    },
+
+    getQuote: (req, res) => {
+        if (!req.isAuthenticated()){
+            req.flash('message', 'You must login to request a quote')
+            return res.redirect('/login')
+        }
+        return res.render('main/quote')
     }
 }

@@ -159,7 +159,7 @@
     font-size: 1.4rem;
     border: 0.0625rem solid black;
 }
-.edit-btn, .change-pwd-btn, .save-btn {
+.edit-btn, .change-pwd-btn, .save-btn, .quote-btn {
     height: 2.1rem;
     width: 5rem;
     background-color: black;
@@ -222,7 +222,7 @@
 .confirmation a {
     color: blue;
 }
-#password-container {
+#password-container, .quote {
     height: 27rem;
     width: 30rem;
     margin: auto;
@@ -287,4 +287,56 @@
     font-size: 2rem;
     grid-column: 2 / span 1;
     text-decoration: none;
+}
+.quote-info-container {
+    display: grid;
+    grid-template-columns: 9rem 21rem;
+    margin-top: 1rem;
+}
+.quote-info-container div {
+    display: flex;
+    justify-content: space-between;
+}
+.quote-label {
+    grid-column: 1 / span 1;
+    font-size: 1.5rem;
+}
+.quote-input, .dropdown {
+    height: 1.5rem;
+    border: 0.125rem solid rgb(70, 70, 70);
+    font-size: 1rem;
+}
+.checkbox {
+    font-size: 1.2rem;
+    height: 1.2rem;
+}
+.dropdown{
+    width: 8.5rem;
+}
+.date {
+    width: 8rem;
+}
+.tiers {
+    width: 2.5rem;
+}
+.quote-info input {
+    grid-column: 2 / span 1;
+}
+.txtarea-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.txtarea-container label {
+    font-size: 1.5rem;
+}
+.txtarea-container textarea {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    height: 10rem;
+}
+.quote-btn {
+    margin-top: 1rem;
+    width: 11rem;
+    margin-bottom: 1rem;
 }
