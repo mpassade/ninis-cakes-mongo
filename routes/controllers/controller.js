@@ -147,7 +147,7 @@ module.exports = {
                         {
                             "From": {
                                 "Email": "michael.passade@codeimmersives.com",
-                                "Name": "Nini"
+                                "Name": "Nini's Cakes"
                             },
                             "To": [
                                 {
@@ -293,6 +293,41 @@ module.exports = {
             newQuote.type = req.body.type
             newQuote.frosting = req.body.frosting
             newQuote.tiers = req.body.tiers
+            newQuote.color = req.body.color
+            newQuote.theme = req.body.theme
+            newQuote.feeds = req.body.feeds
+            newQuote.extras.macarons = req.body.macarons ? true : false
+            newQuote.extras.cookies = req.body.cookies ? true : false
+            newQuote.extras.cupcakes = req.body.cupcakes ? true : false
+            newQuote.needed = req.body.date
+            newQuote.comment = req.body.comments
+
+            newQuote.save()
+            .then(() => {
+                mailjet.post("send", {'version': 'v3.1'}).request({
+                    "Messages":[
+                        {
+                            "From": {
+                                "Email": "michael.passade@codeimmersives.com",
+                                "Name": "Nini's Cakes"
+                            },
+                            "To": [
+                                {
+                                    "Email": "niniscakesnyc@gmail.com",
+                                    "Name": "Lania"
+                                }
+                            ],
+                            "Subject": "New Request",
+                            "TextPart": "Quote Requested",
+                            "HTMLPart": `<p>Hi Lania,</p><p>A new quote has been requested:</p><p>Name: ${req.body.name}</p><p>Email: ${req.body.email}</p><p>Phone # ${req.body.number}</p><p>Type: ${req.body.type ? req.body.type : ''}</p><p>Frosting: ${req.body.frosting ? req.body.frosting : ''}</p><p>Tiers ${req.body.tiers ? req.body.tiers : ''}</p><p>Color: ${req.body.color}</p><p>Theme: ${req.body.theme}</p><p>Feeds: ${req.body.feeds ? req.body.feeds : ''}</p><p>Macarons: ${req.body.macarons ? 'Yes' : 'No'}</p><p>Cookies: ${req.body.cookies ? 'Yes' : 'No'}</p><p>Cupcakes: ${req.body.cupcakes ? 'Yes' : 'No'}</p><p>Needed: ${req.body.date}</p><span>Additional Comments:</span><p>${req.body.comments}</p>`,
+                            "CustomID": "AppGettingStartedTest"
+                        }
+                    ]
+                })
+                return res.render('main/quote-requested')
+            }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
         }).catch(err => {
             return res.send(`Server Error: ${err}`)
         })

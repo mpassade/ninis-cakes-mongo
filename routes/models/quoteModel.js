@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const QuoteSchema = new mongoose.Schema({
     requestor: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'user' 
     },
     name: {
@@ -54,7 +54,7 @@ const QuoteSchema = new mongoose.Schema({
         }
     },
     needed: {
-        type: Date
+        type: String
     },
     comment: {
         type: String,
