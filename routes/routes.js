@@ -6,13 +6,13 @@ const {
     home, getRegister, getLogin, getSetPwd, logout,
     getProfile, getEdit, register, setPwd, editProfile,
     verifyEmail, getChangePwd, changePwd, deleteUser,
-    contact, getQuote
+    contact, getQuote, requestQuote
 } = require('./controllers/controller')
 
 const {
     checkRegister, duplicateAccount, checkPwds, checkTemp,
     checkNewPwd, checkLogin, checkEdit, checkPwds2, checkOld,
-    checkNewPwd2
+    checkNewPwd2, checkQuote
 } = require('./middleware/middleware')
 
 router.get('/', home)
@@ -39,6 +39,11 @@ router.post(
         failureRedirect: '/login',
         failureFlash: true
     }))
+router.post(
+    '/request-quote/:id',
+    checkQuote,
+    requestQuote
+)
 router.put(
     '/set-password/:id',
     checkPwds,

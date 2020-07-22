@@ -137,5 +137,14 @@ module.exports = {
                 return res.redirect(`/change-password/${req.params.id}`)
         }
         next()
+    },
+
+    checkQuote: (req, res, next) => {
+        const { name, number, email } = req.body
+        if (!name || !number || !email){
+            req.flash('errors', 'Name, email, and phone number are required')
+            return res.redirect('/quote')
+        }
+        next()
     }
 }

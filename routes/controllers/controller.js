@@ -1,5 +1,6 @@
 const Cake = require('../models/cakeModel')
 const User = require('../models/userModel')
+const Quote = require('../models/quoteModel')
 const bcrypt = require('bcryptjs')
 const mailjet = require ('node-mailjet')
 .connect(process.env.MAILJET_API_KEY, process.env.MAILJET_SECRET_KEY)
@@ -273,5 +274,27 @@ module.exports = {
             return res.redirect('/login')
         }
         return res.render('main/quote')
+    },
+
+    requestQuote: (req, res) => {
+        if (!req.isAuthenticated()){
+            return res.redirect('/')
+        }
+        User.findOne({_id: req.params.id})
+        .then(user => {
+            if (JSON.stringify(user)!==JSON.stringify(req.user)){
+                return res.redirect('/')
+            }
+            const newQuote = new Quote()
+            newQuote.requestor = req.user._id
+            newQuote.name = req.body.name
+            newQuote.email = req.body.email
+            newQuote.number = req.body.number
+            newQuote.type = req.body.type
+            newQuote.frosting = req.body.frosting
+            newQuote.tiers = req.body.tiers
+        }).catch(err => {
+            return res.send(`Server Error: ${err}`)
+        })
     }
 }
